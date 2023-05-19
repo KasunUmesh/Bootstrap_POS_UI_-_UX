@@ -179,6 +179,19 @@
                     <div class="modal-body">
                       <form>
                         <div class="mb-3">
+                          <label for="cusId" class="col-form-label"
+                            >Customer ID</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter Id"
+                            aria-label="Enter Id"
+                            id="cusId"
+                          />
+                        </div>
+
+                        <div class="mb-3">
                           <label for="name" class="col-form-label"
                             >Full Name</label
                           >
@@ -205,30 +218,6 @@
                         </div>
 
                         <div class="mb-3">
-                          <label for="nic" class="col-form-label">NIC</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter NIC"
-                            aria-label="Enter NIC"
-                            id="nic"
-                          />
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="mobile" class="col-form-label"
-                            >Mobile Number</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Mobile Number"
-                            aria-label="Enter Mobile Number"
-                            id="mobile"
-                          />
-                        </div>
-
-                        <div class="mb-3">
                           <label for="salary" class="col-form-label"
                             >Salary</label
                           >
@@ -251,7 +240,11 @@
                       >
                         Close
                       </button>
-                      <button type="button" class="btn btn-primary">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnSave"
+                      >
                         Save
                       </button>
                     </div>
@@ -274,50 +267,7 @@
                   <th scope="col">Salary</th>
                 </tr>
               </thead>
-              <tbody class="table-secondary">
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>Kasun</td>
-                  <td>Ampara</td>
-                  <td>100000</td>
-                </tr>
-              </tbody>
+              <tbody class="table-secondary"></tbody>
             </table>
           </div>
           <!-- Col four End -->
@@ -327,5 +277,63 @@
     </main>
 
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/JQuery/jquery-3.6.4.min.js"></script>
+    <script>
+      const data = "DATA";
+
+      var customers_arr = [];
+
+      function loadData() {
+        let pre_data = localStorage.getItem(data);
+        let customer_data_arr = JSON.parse(pre_data);
+        customer_data_arr.map((result, index) => {
+          var row =
+            "<tr>" +
+            "<td>" +
+            result.customer_id +
+            "</td>" +
+            "<td>" +
+            result.customer_Name +
+            "</td>" +
+            "<td>" +
+            result.customer_address +
+            "</td>" +
+            "<td>" +
+            result.customer_salary +
+            "</td>" +
+            "</tr>";
+          $("tbody").append(row);
+        });
+      }
+
+      $("#btnSave").click(function () {
+        var customer_id = $("#cusId").val();
+        var customer_Name = $("#name").val();
+        var customer_address = $("#address").val();
+        var customer_salary = $("#salary").val();
+
+        let pre_data = localStorage.getItem(data);
+
+        let data_arr = [];
+
+        if (pre_data) {
+          data_arr = JSON.parse(pre_data);
+        }
+
+        var obj = {
+          customer_id: customer_id,
+          customer_Name: customer_Name,
+          customer_address: customer_address,
+          customer_salary: customer_salary,
+        };
+
+        data_arr.push(obj);
+        localStorage.setItem(data, JSON.stringify(data_arr));
+
+        loadData();
+      });
+
+      loadData();
+    </script>
   </body>
 </html>
