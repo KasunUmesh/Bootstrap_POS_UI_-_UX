@@ -116,17 +116,60 @@
             >
               Item Edit
             </h2>
+            <form>
+              <div class="mb-3">
+                <label for="code" class="col-form-label">Item Code</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Item Code"
+                  aria-label="Enter Item Code"
+                  id="code"
+                />
+              </div>
 
-            <div
-              class="btn-group btn-group-lg justify-content-md-center d-md-flex p-4 m-2"
-              role="group"
-              aria-label="Basic mixed styles example"
-            >
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="button" class="btn btn-warning">Update</button>
-              <button type="button" class="btn btn-primary">Details</button>
-              <button type="button" class="btn btn-success">Clear</button>
-            </div>
+              <div class="mb-3">
+                <label for="item-name" class="col-form-label">Item Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Item Name"
+                  aria-label="Enter Item Name"
+                  id="item-name"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="price" class="col-form-label">Price</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Price"
+                  aria-label="Enter Price"
+                  id="price"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="qty" class="col-form-label">Quantity</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Quantity"
+                  aria-label="Enter Quantity"
+                  id="qty"
+                />
+              </div>
+            </form>
+            <button type="button" class="btn btn-primary" id="btn-itemSave">
+              Save
+            </button>
+            <button type="button" class="btn btn-warning" id="btn-itemupdate">
+              Update
+            </button>
+            <button type="button" class="btn btn-danger" id="btn-itemdelete">
+              Delete
+            </button>
           </div>
           <!-- Col Two End -->
 
@@ -152,7 +195,7 @@
               </button>
 
               <!-- Modal Start -->
-              <div
+              <!-- <div
                 class="modal fade"
                 id="exampleModal"
                 tabindex="-1"
@@ -243,7 +286,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Modal End -->
             </div>
           </div>
@@ -254,53 +297,13 @@
             <table class="table table-hover table-borderless">
               <thead style="background-color: #00918d">
                 <tr>
+                  <th class="border-end border-white" scope="col">Item Code</th>
                   <th class="border-end border-white" scope="col">Item Name</th>
                   <th class="border-end border-white" scope="col">Price</th>
                   <th scope="col">Quantity</th>
                 </tr>
               </thead>
-              <tbody class="table-secondary">
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Iphone 7 Plus</td>
-                  <td>70000</td>
-                  <td>50</td>
-                </tr>
-              </tbody>
+              <tbody class="table-secondary"></tbody>
             </table>
           </div>
           <!-- Col four End -->
